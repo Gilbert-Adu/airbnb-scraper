@@ -1,0 +1,41 @@
+# Main functions:
+1. extract_listing
+2. extract_detail_page
+3. write_to_csv
+4. get_next_page
+5. process_cities_links
+6. run
+7. scrape_page
+
+# Helper functions:
+1. ratings_processor
+2. brackets_helper
+3. beds_processor
+4. cost_processor
+5. details_processor
+6. process_fees
+
+# How to start the program
+
+1. Install Python3 using pip install Python3
+2. Install all the dependencies above using pip "name of dependency"
+3. Delete the .csv file already in the directory and replace with one of your own
+4. Replace name of .csv file mentioned in the code in the index.py file. and make sure new name matches your new file
+5. In your terminal, run python3 index.py
+
+
+Top-Bottom explanation of how everything works. 
+
+1. A cities list is a list of a list. So imagine for example, given [["Ithaca", "NY"]]
+2. The list of cities is passed to the run(cities) function but before it does anything, we need to create the main URL for
+that one city, which is why we call the process_cities_links(cities) inside run(cities)
+3. The variable named urls in the function run(cities) contains a list(could be just one item if it's only one city) of link(s)
+to the main Airbnb page of that particular city. 
+4. Then, we extract all the details of each listing on the main Airbnb page of the city by using extract_listing(url)
+5. In the extract_listing function, we get all the visible details of a listing and then we call on extract_detail_page to essentially
+click on each listing, showing the detailed page of that listing so we can get more details such as cleaning fees and service fees
+6. Once we've collected data from the main page and detail page for one listing, we write it into (update) the csv file with the new data.
+7. After getting data from the main page and detail page, we go to the next page using get_next_page and repeat the steps above.
+
+#SUGGESTION: Run code one city at a time so as not to break code
+
